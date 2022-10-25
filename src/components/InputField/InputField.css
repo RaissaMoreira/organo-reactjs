@@ -1,0 +1,20 @@
+.input-field {
+  margin: 24px 0;
+}
+
+.input-field label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 24px;
+}
+
+.input-field input {
+  background-color: #fff;
+  border: none;
+  font-size: 17px;
+
+  box-sizing: border-box;
+  width: 100%;
+  padding: 24px;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
+}
