@@ -5,7 +5,7 @@ const DropDownList = (props) => {
   return (
     <div className='dropDrown-list'>
       <label>{props.label}</label>
-      <select required={props.obrigatorio}>
+      <select value={props.valor} onChange={event => props.aoAlterado(event.target.value)} required={props.obrigatorio}>
         {props.itens.map(item => {
           return <option key={item}>{ item }</option>
         })}
