@@ -1,16 +1,23 @@
 import { useState } from "react";
+import { IColaborador } from "../../shared/interfaces/IColaborador";
 import Button from "../Button";
 import DropDownList from "../DropDownList";
 import InputField from "../InputField";
 import "./Form.css";
 
-const Form = (props) => {
+interface FormProps {
+  aoColaboradorCadastrado: (colaborador: IColaborador) => void,
+  times: string[],
+  obrigatorio?: boolean
+}
+
+const Form = (props: FormProps) => {
   const [nome, setNome] = useState('');
   const [cargo, setCargo] = useState('');
   const [imagem, setImagem] = useState('');
   const [time, setTime] = useState('');
 
-  const saveForm = (event) => {
+  const saveForm = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     props.aoColaboradorCadastrado({
       nome,
@@ -44,6 +51,7 @@ const Form = (props) => {
           aoAlterado={valor => setCargo(valor)}
           />
         <InputField
+          obrigatorio={true}
           label="Imagem"
           placeholder="Digite o endereço da imagem"
           valor={imagem}
