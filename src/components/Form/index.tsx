@@ -16,6 +16,7 @@ const Form = (props: FormProps) => {
   const [cargo, setCargo] = useState('');
   const [imagem, setImagem] = useState('');
   const [time, setTime] = useState('');
+  const [data, setData] = useState('');
 
   const saveForm = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -23,7 +24,8 @@ const Form = (props: FormProps) => {
       nome,
       cargo,
       imagem,
-      time
+      time,
+      data
     });
 
     setNome('');
@@ -57,6 +59,14 @@ const Form = (props: FormProps) => {
           valor={imagem}
           aoAlterado={valor => setImagem(valor)}
           />
+        <InputField
+          obrigatorio={true}
+          label="Data de entrada no Time"
+          placeholder=""
+          valor={data}
+          tipo='date'
+          aoAlterado={valor => setData(valor)}
+        />
         <DropDownList
           obrigatorio={true}
           label="Time"

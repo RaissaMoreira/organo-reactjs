@@ -4,11 +4,12 @@ interface InputFieldProps {
   aoAlterado: (valor: string) => void,
   label: string,
   valor: string,
-  obrigatorio: boolean,
+  obrigatorio?: boolean,
   placeholder: string,
+  tipo?: 'text' | 'password' | 'date' | 'email' | 'number'
 }
 
-const InputField = ({ aoAlterado, label, valor, placeholder, obrigatorio = false }: InputFieldProps) => {
+const InputField = ({ aoAlterado, label, valor, placeholder, obrigatorio = false, tipo = 'text' }: InputFieldProps) => {
   const aoDigitar = (event: React.ChangeEvent<HTMLInputElement>) => {
     aoAlterado(event.target.value);
   }
@@ -20,7 +21,9 @@ const InputField = ({ aoAlterado, label, valor, placeholder, obrigatorio = false
           value={valor} 
           onChange={aoDigitar} 
           required={obrigatorio} 
-          placeholder={ placeholder } type="text" />
+          placeholder={ placeholder }
+          type={tipo} 
+      />
     </div>
   )
 }
