@@ -6,7 +6,7 @@ interface TeamProps {
   corPrimaria: string,
   name: string,
   colaboradores: IColaborador[],
-  corSecundaria: string
+  corSecundaria: string,
 }
 
 const Team = (props: TeamProps) => {
@@ -20,7 +20,8 @@ const Team = (props: TeamProps) => {
             key={colaborador.nome} 
             nome={colaborador.nome} 
             cargo={colaborador.cargo} 
-            imagem={colaborador.imagem} 
+            imagem={colaborador.imagem}
+            data={colaborador.data} 
           />)}
       </div>
     </section> : <></>
